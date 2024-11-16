@@ -22,7 +22,17 @@ function App() {
     },1500);
   };
 
-  const toggleMode = () => {
+  const removeClass = () => {
+    document.body.classList.remove("bg-sucess");
+    document.body.classList.remove("bg-warning");
+    document.body.classList.remove("bg-danger");
+    document.body.classList.remove("bg-info");
+    document.body.classList.remove("bg-primary");
+  }
+
+  const toggleMode = (cls) => {
+    removeClass();
+    document.body.classList.add("bg-"+cls);
     if(mode === "light"){
       setMode("dark")
       document.body.style.backgroundColor = "#042743";
@@ -50,7 +60,7 @@ function App() {
       <About mode={mode}/>
       <div className="container">
         <Routes>
-              <Route path='/' element={<TextForm heading="TextUtils" mode={mode} showAlert={showAlert}/>}/>
+              <Route path='/' element={<TextForm heading="TextUtils - World Counter, Space Remover, Upper & Lower Case converter" mode={mode} showAlert={showAlert}/>}/>
               {/* <Route path='/about' element={<About mode={mode}/>} /> */}
               <Route path='/weather' element={<Weather/>} />
         </Routes>

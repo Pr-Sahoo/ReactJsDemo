@@ -39,7 +39,7 @@ const TextForm = (props) => {
     return (
         <>
             <div className="container" style={{color: props.mode === "white" ? "dark" : "#042743"}}>
-                <h1>{props.heading}</h1>
+                <h1 style={{color: props.mode === "dark" ? "white" : "black"}}>{props.heading}</h1>
                 <div className="mb-3 my-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">Example textarea</label>
                     <textarea className="form-control" value={text} onChange={handleChange} style={{
@@ -53,7 +53,7 @@ const TextForm = (props) => {
                 <button type='button' disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={Copy}>Copy text</button>
                 <button type='button' disabled={text.length === 0} className='btn btn-primary mx-1 my-1' onClick={extraSpc}>Remove extSpace</button>
             </div>
-            <div className="container my-3" style={{color: "dark" ? "white" : "#042743"}}>
+            <div className="container my-3" style={{color: props.mode ==="dark" ? "white" : "#042743"}}>
                 <p>{text.split(/\s+/).filter((element) => {return element.length !== 0}).length} words and {text.length} characters</p>
                 <p>{0.008 * text.split(/\s+/).filter((element) => {return element.length !== 0}).length} minutes to read</p>
                 <h2>preview</h2>
